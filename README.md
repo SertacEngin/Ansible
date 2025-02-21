@@ -2,6 +2,108 @@
 Ansible Projects
 These are my own notes to start with Ansible.
 
+Configuration management is how we manage the configuration of the servers or the infrastructure.
+
+Ansible is an open-source automation tool used for configuration management, application deployment, and orchestration. It helps automate IT tasks 
+like installing software, managing servers, and deploying applications across multiple systems.
+
+Orchestration in DevOps refers to automating and managing multiple processes across different environments. It ensures that various tasks (such as 
+deployments, scaling, monitoring, and networking) work together efficiently.
+
+Why is Orchestration Important?
+    Reduces manual effort → Automates deployments, rollbacks, and updates.
+    Ensures consistency → No configuration drift across environments.
+    Speeds up delivery → Faster time-to-market by automating workflows.
+    Improves scalability → Easily scale infrastructure and applications.
+    Enhances reliability → Reduces human error in critical processes.
+
+Example of Orchestration Tools
+    Kubernetes → Orchestrates containerized applications.
+    Terraform → Automates cloud infrastructure provisioning.
+    AWS CodePipeline → Automates CI/CD pipelines.
+    Ansible, Puppet, Chef → Automates server configuration and deployments.
+
+Why Use Ansible?
+    Agentless → No need to install anything on managed nodes (it uses SSH or WinRM).
+    Simple & Easy to Learn → Uses YAML-based playbooks.
+    Idempotent → Ensures the same result no matter how many times it's run.
+    Scalable → Can manage thousands of machines at once.
+
+What is Ansible Used For?
+1️⃣ Configuration Management
+    Automate setting up servers with the correct software, users, and settings.
+    Example: Install and configure Nginx on multiple servers.
+2️⃣ Application Deployment
+    Deploy applications consistently across different environments.
+    Example: Deploy a Docker container or a web app to AWS.
+3️⃣ Orchestration
+    Manage complex workflows (e.g., rolling updates, multi-tier applications).
+    Example: Deploy an app to Kubernetes while updating a database.
+4️⃣ Infrastructure as Code (IaC)
+    Automate cloud resource provisioning (EC2, S3, RDS, etc.).
+    Example: Use Ansible to set up AWS EC2 instances and configure networking.
+5️⃣ Security & Compliance Automation
+    Apply security patches, enforce firewall rules, and set up monitoring.
+    Example: Ensure all Linux servers have the latest security updates.
+
+How Does Ansible Work?
+    Control Node → The machine where Ansible runs.
+    Managed Nodes → The machines Ansible configures (Linux, Windows, etc.).
+    Inventory File → A list of managed nodes (IP addresses or domain names).
+    Playbooks → YAML files that define automation tasks.
+
+System administrators used to do these with shell scripts but it was difficult to patch thousands of servers quickly. This is where Ansible comes 
+into play.
+
+Now with cloud systems we have tens of thousands of servers to manage and it is very difficult to manage them with shell scripts.
+
+The hardest part was to create programs with various programming languages for various operating systems with various versions. To address this it 
+was necessary to create a software for this.
+
+So the concept of configuration management was created for this. Configuration management aims to solve the problem of managing the configuration 
+of multiple servers. There are popular tools for this like Pupper, Chef, Ansible, and Salt. Ansible has most number of users or DevOps engineers.
+
+Why is Ansible better then the others?
+
+Pupper has a pull mechanism whereas Ansible has a push mechanism. For example a DevOps engineer pushes the configuration from his laptop to 10 EC2 
+instances that he manages on AWS.
+
+Puppet has a master/slave architecture whereas Ansible has an agentless model. With Puppet the developers has 1 master and many slaves. With 
+Ansible we just place the names of the servers in n inventory file. The names can be IP addresses or DNS names. With Ansible out laptop should be 
+able to access these instances without a password. So we need passwordless authentication. 
+
+Ansible support dynamic inventory files. Which mean when new servers are created in out environment, Ansible can detect them and starts 
+configuring them along with our other servers.
+
+Ansible supports both Windows and Linux. But people have problems with Ansible on Windows.
+
+Ansible is pretty simple. It uses yaml language. But Puppet has its own Puppet language.
+
+There is room for improvement for debugging with Ansible. And it has performance issues sometimes.
+
+Ansible is not just for configuration management but also for orchestration, application deployment, and security automation. Puppet is mainly 
+focused on configuration management.
+
+Ansible integrates easily with AWS, Azure, GCP, Docker, Kubernetes, and CI/CD tools.
+
+Puppet has cloud modules but is less flexible for orchestration.
+
+Ansible relies on SSH (which is already secure), while Puppet requires TCP ports to be open for communication.
+
+We can write our own Ansible modules. Ansible is written in python. 
+
+We can use Ansible to automate the configuration and management of load balancers like F5 BIG-IP, Nginx, HAProxy, and AWS ELB. This is useful in 
+DevOps workflows where you need to:
+
+✅ Deploy new servers behind a load balancer
+✅ Automatically update configurations
+✅ Scale infrastructure dynamically
+
+Ansible manages load balancers using modules specific to each type. These modules allow us to configure virtual servers, pools, and policies 
+dynamically. AWS provides Ansible modules for managing ELB resources.
+
+F5 BIG-IP: Ansible modules handle enterprise-grade load balancing.
+
 We connect to our EC2 instance on AWS with the command “ssh -i ansibleproject.pem ubuntu@18.199.220.57”.
 
 Now we are connected to our Ubuntu EC2 instance and we can install Ansible. First we execute “sudo apt update” and then “sudo install ansible”. And we check it with “ansible –version”.
