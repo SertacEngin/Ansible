@@ -30,18 +30,23 @@ Why Use Ansible?
     Scalable → Can manage thousands of machines at once.
 
 What is Ansible Used For?
+
 1️⃣ Configuration Management
     Automate setting up servers with the correct software, users, and settings.
     Example: Install and configure Nginx on multiple servers.
+
 2️⃣ Application Deployment
     Deploy applications consistently across different environments.
     Example: Deploy a Docker container or a web app to AWS.
+
 3️⃣ Orchestration
     Manage complex workflows (e.g., rolling updates, multi-tier applications).
     Example: Deploy an app to Kubernetes while updating a database.
+
 4️⃣ Infrastructure as Code (IaC)
     Automate cloud resource provisioning (EC2, S3, RDS, etc.).
     Example: Use Ansible to set up AWS EC2 instances and configure networking.
+
 5️⃣ Security & Compliance Automation
     Apply security patches, enforce firewall rules, and set up monitoring.
     Example: Ensure all Linux servers have the latest security updates.
@@ -96,7 +101,9 @@ We can use Ansible to automate the configuration and management of load balancer
 DevOps workflows where you need to:
 
 ✅ Deploy new servers behind a load balancer
+
 ✅ Automatically update configurations
+
 ✅ Scale infrastructure dynamically
 
 Ansible manages load balancers using modules specific to each type. These modules allow us to configure virtual servers, pools, and policies 
