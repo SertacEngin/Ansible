@@ -4,7 +4,7 @@ These are my own notes to start with Ansible.
 
 We connect to our EC2 instance on AWS with the command “ssh -i ansibleproject.pem ubuntu@18.199.220.57”.
 
-Now ae are connected to our Ubuntu EC2 instance and we can install Ansible. First we execute “sudo apt update” and then “sudo install ansible”. And we check it with “ansible –version”.
+Now we are connected to our Ubuntu EC2 instance and we can install Ansible. First we execute “sudo apt update” and then “sudo install ansible”. And we check it with “ansible –version”.
 
 We need 2 servers for this. First is the Ansible server and the other is the target Ubuntu server.
 
